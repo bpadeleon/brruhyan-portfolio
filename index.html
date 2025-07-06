@@ -344,19 +344,25 @@
 
 /* Mobile overlay nav - hidden by default */
 .mobile-nav-overlay {
-  display: none; /* hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   backdrop-filter: blur(8px);
-  background: rgba(24, 24, 24, 0.9);
+  background: rgba(24,24,24,0.9);
   z-index: 9999;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.3s ease;
+}
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Make sure links are centered vertically */
