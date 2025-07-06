@@ -388,6 +388,18 @@
   font-weight: 600;
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+  will-change: transform, opacity;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Show hamburger icon on mobile */
 @media (max-width: 900px) {
   .header-nav {
@@ -550,7 +562,7 @@
   </section>
 
 <!-- About Section -->
-<section id="about" class="about-section">
+<section id="about" class="about-section reveal">
   <div style="width:100%; text-align:center; margin-bottom: 0.8em;">
     <h2 style="color: var(--text-main); font-size: 2.3rem; font-weight: 800; margin: 0 0 0.15em 0; letter-spacing: -1px;">
       About Me
@@ -599,7 +611,7 @@
   }
 </style>
 <!-- Projects Section -->
-<section id="projects" class="certification-section">
+<section id="projects" class="certification-section reveal">
   <div style="width:100%; text-align:center; margin-bottom: 0;">
     <h2 style="color: var(--text-main); font-size: 2.3rem; font-weight: 800; margin: 0 0 0.15em 0; letter-spacing: -1px;">
       Projects
@@ -652,7 +664,7 @@
     z-index: 2;
   }
 </style>
-<section id="certifications" class="certification-section">
+<section id="certifications" class="certification-section reveal">
   <div style="width:100%; text-align:center; margin-bottom: 0;">
     <h2 style="color: var(--text-main); font-size: 2.3rem; font-weight: 800; margin: 0 0 0.15em 0; letter-spacing: -1px;">
       My Certifications
@@ -726,7 +738,8 @@
   </div>
 </section>
 </body>
-  <script>
+  
+<script>
 function toggleMobileNav() {
   const nav = document.getElementById("mobileNav");
   nav.classList.toggle("active");
@@ -743,5 +756,26 @@ document.getElementById("mobileNav").addEventListener("click", function(e) {
     closeMobileNav();
   }
 });
+</script>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const options = {
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target); // Only animate once
+      }
+    });
+  }, options);
+
+  reveals.forEach(section => {
+    observer.observe(section);
+  });
 </script>
 </html>
