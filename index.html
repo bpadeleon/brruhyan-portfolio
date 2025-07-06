@@ -698,13 +698,21 @@
 </section>
 </body>
   <script>
-  function toggleMobileNav() {
-    const nav = document.getElementById("mobileNav");
-    if (nav.style.display === "flex") {
-      nav.style.display = "none";
-    } else {
-      nav.style.display = "flex";
-    }
+function toggleMobileNav() {
+  const nav = document.getElementById("mobileNav");
+  nav.classList.toggle("active");
+}
+
+function closeMobileNav() {
+  const nav = document.getElementById("mobileNav");
+  nav.classList.remove("active");
+}
+
+// Optional: Close when any link inside the overlay is clicked
+document.getElementById("mobileNav").addEventListener("click", function(e) {
+  if (e.target.tagName === "A") {
+    closeMobileNav();
   }
+});
 </script>
 </html>
