@@ -334,7 +334,7 @@
     margin: 0 0 0.5em 0;
     text-align: center;
   }
-    /* Hide hamburger and mobile nav by default */
+/* Hide hamburger by default */
 .hamburger-menu {
   display: none;
   font-size: 1.8rem;
@@ -342,28 +342,40 @@
   color: #f3f3f3;
 }
 
-/* Mobile nav hidden by default */
-.mobile-nav {
-  display: none;
+/* Mobile overlay nav - hidden by default */
+.mobile-nav-overlay {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background: rgba(24, 24, 24, 0.9);
+  z-index: 9999;
   flex-direction: column;
-  background: #232323;
-  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
 }
 
-/* Mobile nav link styles */
-.mobile-nav a {
+/* Make sure links are centered vertically */
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Links styling */
+.mobile-nav-links a {
   color: #f3f3f3;
   text-decoration: none;
-  font-size: 1rem;
-  padding: 0.7em 0;
-  border-bottom: 1px solid #3B82F6;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
-.mobile-nav a:last-child {
-  border-bottom: none;
-}
-
-/* On mobile: hide .header-nav, show hamburger */
+/* Show hamburger icon on mobile */
 @media (max-width: 900px) {
   .header-nav {
     display: none;
@@ -373,7 +385,6 @@
   }
 }
 
- 
     @media (max-width: 900px) {
       .hero-main,
       .about-section {
@@ -478,12 +489,14 @@
   </div>
   </header>
 
-<nav class="mobile-nav" id="mobileNav">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#contact">Contact</a>
+<nav class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-links">
+    <a href="#home" onclick="closeMobileNav()">Home</a>
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#projects" onclick="closeMobileNav()">Projects</a>
+    <a href="#certifications" onclick="closeMobileNav()">Certifications</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
 </nav>
   <section class="hero-main">
     <div class="hero-left">
