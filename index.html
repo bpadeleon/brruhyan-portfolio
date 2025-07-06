@@ -354,7 +354,7 @@
         justify-content: center;
       }
     }
-      @media (max-width: 1100px) {
+  @media (max-width: 1100px) {
     .certification-grid {
       gap: 24px;
     }
@@ -495,43 +495,49 @@
     z-index: 2;
   }
 </style>
-<section id="projects" class="project-section" style="padding-bottom:0; flex-direction: column; align-items: stretch;">
+<!-- Projects Section -->
+<section id="projects" class="certification-section">
   <div style="width:100%; text-align:center; margin-bottom: 0;">
     <h2 style="color: var(--text-main); font-size: 2.3rem; font-weight: 800; margin: 0 0 0.15em 0; letter-spacing: -1px;">
       Projects
     </h2>
     <div style="width: 60px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px;"></div>
   </div>
-  <div style="display: flex; gap: 40px; justify-content: center; align-items: stretch;">
+  <div class="certification-grid">
     <!-- Project Card 1 -->
-    <div class="project-card">
-      <div style="width:100%; height:180px; background:#181818; border:0px dashed var(--accent); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:1em; overflow:hidden;">
-        <img src="ShroomGuard.png" alt="ShroomGuard Logo" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+    <div class="certification-card">
+      <div class="certification-img-placeholder" style="height: 180px; width: 100%; margin-bottom: 1em; border-radius: 10px; overflow: hidden;">
+        <img src="ShroomGuard.png" alt="ShroomGuard" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <h3 style="color:#fff; font-size:1.25rem; font-weight:700; margin:0 0 0.5em 0; text-align:left; width:100%;">ShroomGuard</h3>
-      <p style="color:#b3b3b3; font-size:0.9rem; margin:0 0 1em 0; text-align:left;">
-        This project revolutionizes oyster mushroom harvesting by using a deep learning model trained to accurately determine the optimal harvest time based on internationally and locally recognized standards.
-      </p>
+      <div style="color:var(--accent); font-size:0.95rem; font-weight:600; margin-bottom:0.2em;">Project</div>
+      <div class="certification-title" style="text-align:left;">ShroomGuard</div>
+      <div class="certification-desc" style="text-align:left;">
+        Uses a deep learning model to detect the optimal harvest time of oyster mushrooms based on global standards.
+      </div>
     </div>
+
     <!-- Project Card 2 -->
-    <div class="project-card">
-      <div style="width:100%; height:180px; background:#181818; border:0px dashed var(--accent); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:1em; overflow:hidden;">
-        <img src="ThermoDeliver.png" alt="ThermoDeliver Logo" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+    <div class="certification-card">
+      <div class="certification-img-placeholder" style="height: 180px; width: 100%; margin-bottom: 1em; border-radius: 10px; overflow: hidden;">
+        <img src="ThermoDeliver.png" alt="ThermoDeliver" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <h3 style="color:#fff; font-size:1.25rem; font-weight:700; margin:0 0 0.5em 0; text-align:left; width:100%;">ThermoDeliver</h3>
-      <p style="color:#b3b3b3; font-size:0.9rem; margin:0 0 1em 0; text-align:left;">
-        Developed a smart temperature regulation system for food delivery that actively heats and cools meals using thermoelectric Peltier modules, with PID control and a cloud-based dashboard for real-time user configuration.
-      </p>
+      <div style="color:var(--accent); font-size:0.95rem; font-weight:600; margin-bottom:0.2em;">Project</div>
+      <div class="certification-title" style="text-align:left;">ThermoDeliver</div>
+      <div class="certification-desc" style="text-align:left;">
+        A Peltier-based heating/cooling food delivery system with PID control and a cloud dashboard for real-time temperature management.
+      </div>
     </div>
+
     <!-- Project Card 3 -->
-    <div class="project-card">
-      <div style="width:100%; height:180px; background:#181818; border:0px dashed var(--accent); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:1em; overflow:hidden;">
-        <img src="OtherProjects.png" alt="Other Projects" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+    <div class="certification-card">
+      <div class="certification-img-placeholder" style="height: 180px; width: 100%; margin-bottom: 1em; border-radius: 10px; overflow: hidden;">
+        <img src="OtherProjects.png" alt="Other Projects" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <h3 style="color:#fff; font-size:1.25rem; font-weight:700; margin:0 0 0.5em 0; text-align:left; width:100%;">Other Projects</h3>
-      <p style="color:#b3b3b3; font-size:0.9rem; margin:0 0 1em 0; text-align:left;">
-        A compilation of small-scale projects developed throughout my computer engineering journey, including Arduino-based robots and a deep learning model designed to classify chest X-rays.
-      </p>
+      <div style="color:var(--accent); font-size:0.95rem; font-weight:600; margin-bottom:0.2em;">Project</div>
+      <div class="certification-title" style="text-align:left;">Other Projects</div>
+      <div class="certification-desc" style="text-align:left;">
+        Includes Arduino-based bots, a chest X-ray classifier, and other prototypes built during my Computer Engineering degree.
+      </div>
     </div>
   </div>
 </section>
