@@ -417,11 +417,14 @@
         padding: 0.8em 1.5em;
       }
     }
-    @media (max-width: 900px) {
+@media (max-width: 900px) {
   .project-grid {
-    flex-direction: column;
-    gap: 18px;
-    padding: 0 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 2.5em auto 0 auto;
   }
 
   .project-card {
