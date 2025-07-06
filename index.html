@@ -169,12 +169,6 @@
       height: 100%;
       display: block;
     }
-  .about-inner {
-    display: flex;
-    gap: 64px;
-    justify-content: center;
-    align-items: center;
-  }
     .about-title {
       color: #f3f3f3;
       font-size: 2rem;
@@ -186,7 +180,6 @@
       font-size: 1.00rem;
       margin-bottom: 1.5em;
       line-height: 1.6;
-      text-align: justify;
     }
     .about-contact-card {
       background: #232323;
@@ -341,7 +334,7 @@
     margin: 0 0 0.5em 0;
     text-align: center;
   }
-/* Hide hamburger by default */
+    /* Hide hamburger and mobile nav by default */
 .hamburger-menu {
   display: none;
   font-size: 1.8rem;
@@ -349,46 +342,28 @@
   color: #f3f3f3;
 }
 
-/* Mobile overlay nav - hidden by default */
-.mobile-nav-overlay {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(8px);
-  background: rgba(24,24,24,0.9);
-  z-index: 9999;
-  display: flex;
+/* Mobile nav hidden by default */
+.mobile-nav {
+  display: none;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.mobile-nav-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
+  background: #232323;
+  padding: 1em;
 }
 
-/* Make sure links are centered vertically */
-.mobile-nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-/* Links styling */
-.mobile-nav-links a {
+/* Mobile nav link styles */
+.mobile-nav a {
   color: #f3f3f3;
   text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.7em 0;
+  border-bottom: 1px solid #3B82F6;
 }
 
-/* Show hamburger icon on mobile */
+.mobile-nav a:last-child {
+  border-bottom: none;
+}
+
+/* On mobile: hide .header-nav, show hamburger */
 @media (max-width: 900px) {
   .header-nav {
     display: none;
@@ -398,6 +373,7 @@
   }
 }
 
+ 
     @media (max-width: 900px) {
       .hero-main,
       .about-section {
@@ -405,12 +381,14 @@
         gap: 40px;
         padding: 40px 2vw;
       }
-      .hero-left{
+      .hero-left,
+      .about-left {
         align-items: center;
         text-align: center;
         max-width: 100%;
       }
-      .hero-right {
+      .hero-right,
+      .about-right {
         justify-content: center;
       }
     }
@@ -470,8 +448,6 @@
       }
       .hero-desc{
         font-size: 1.00rem;
-        padding: 0 16px;
-  }
       }
       .hero-btn,
       .hero-btn-outline {
@@ -484,28 +460,6 @@
     display: none;
   }
 }
-@media (max-width: 900px) {
-  .about-inner {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .about-left {
-    order: 2;
-    text-align: center;
-    padding: 0 20px;
-    align-items: center;
-  }
-
-  .about-right {
-    order: 1;
-  }
-}
-@media (max-width: 600px) {
-  .about-left {
-    padding: 0 16px;
-  }
-}  
   </style>
 </head>
 <body>
@@ -524,14 +478,12 @@
   </div>
   </header>
 
-<nav class="mobile-nav-overlay" id="mobileNav">
-  <div class="mobile-nav-links">
-    <a href="#home" onclick="closeMobileNav()">Home</a>
-    <a href="#about" onclick="closeMobileNav()">About</a>
-    <a href="#projects" onclick="closeMobileNav()">Projects</a>
-    <a href="#certifications" onclick="closeMobileNav()">Certifications</a>
-    <a href="#contact" onclick="closeMobileNav()">Contact</a>
-  </div>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#contact">Contact</a>
 </nav>
   <section class="hero-main">
     <div class="hero-left">
@@ -550,18 +502,18 @@
   </section>
 
 <!-- About Section -->
-<section id="about" class="about-section">
+<section id="about" class="about-section" style="flex-direction: column; align-items: stretch;">
   <div style="width:100%; text-align:center; margin-bottom: 0.8em;">
     <h2 style="color: var(--text-main); font-size: 2.3rem; font-weight: 800; margin: 0 0 0.15em 0; letter-spacing: -1px;">
-      Projects
+      About Me
     </h2>
     <div style="width: 60px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px;"></div>
   </div>
-  <div class="about-inner">
+  <div style="display: flex; gap: 64px; justify-content: center; align-items: center;">
     <div class="about-left">
       <h3 class="about-title">Computer Engineer</h3>
       <p class="about-desc">
-       My primary expertise lies within the field of embedded systems, where I develop backend functionalities and integrate cloud solutions to various projects.
+        A tech-savvy individual pursuing a degree in Computer Engineering. My primary expertise lies within the field of embedded systems, where I develop backend functionalities and integrate cloud solutions to various projects.
         <br><br>
         Outside of academics, I have been actively involved in extracurricular activities, serving as an executive officer of an AcadArena alliance for two consecutive years.
       </p>
@@ -727,21 +679,13 @@
 </section>
 </body>
   <script>
-function toggleMobileNav() {
-  const nav = document.getElementById("mobileNav");
-  nav.classList.toggle("active");
-}
-
-function closeMobileNav() {
-  const nav = document.getElementById("mobileNav");
-  nav.classList.remove("active");
-}
-
-// Optional: Close when any link inside the overlay is clicked
-document.getElementById("mobileNav").addEventListener("click", function(e) {
-  if (e.target.tagName === "A") {
-    closeMobileNav();
+  function toggleMobileNav() {
+    const nav = document.getElementById("mobileNav");
+    if (nav.style.display === "flex") {
+      nav.style.display = "none";
+    } else {
+      nav.style.display = "flex";
+    }
   }
-});
 </script>
 </html>
