@@ -417,7 +417,7 @@
         padding: 0.8em 1.5em;
       }
     }
-    @media (max-width: 900px) {
+@media (max-width: 900px) {
   .hero-main,
   .about-section {
     flex-direction: column;
@@ -437,35 +437,31 @@
     justify-content: center;
   }
 
-  .certification-grid,
-  .project-section > div:last-child {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-  }
-
-  .certification-grid::-webkit-scrollbar,
-  .project-section > div:last-child::-webkit-scrollbar {
-    display: none;
-  }
-
-  .certification-card,
-  .project-card {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    margin-right: 16px;
-  }
-
-  .project-section {
+  /* Certification section: vertical stacking */
+  .certification-grid {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 24px;
   }
 
+  .certification-card {
+    width: 90%;
+    max-width: 360px;
+  }
+
+  /* Project section: vertical stacking */
   .project-section > div:last-child {
-    display: flex;
-    gap: 16px;
-    padding-left: 16px;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    padding: 0 5vw;
+  }
+
+  .project-card {
+    width: 90%;
+    max-width: 360px;
   }
 }
   </style>
