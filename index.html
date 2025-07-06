@@ -412,19 +412,23 @@
     }
 @media (max-width: 900px) {
   .about-section {
-    flex-direction: column-reverse !important;
-    align-items: center !important;
-  }
-  .about-left {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
   }
   .about-right {
+    width: 100%;
+    display: flex;
     justify-content: center;
+    margin-bottom: 1.5rem; /* spacing below the image */
   }
   .about-image-placeholder {
     width: 100%;
     max-width: 320px;
+  }
+  .about-left {
+    width: 100%;
+    text-align: center;
   }
 }
 
