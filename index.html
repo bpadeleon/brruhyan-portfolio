@@ -1,701 +1,780 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Hi, I’m Bryan Paul! 👋</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-	background-color: #1a1a1a; 
-	color: #ffffff; 
-}
-
-h1, h2, h3, p, li, td, th {
-	color: #ffffff;
-}
-
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	color: #ffffff;
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-* {
-    color: #ffffff !important;
-}
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: #444444;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-	margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	color: #ffffff;
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #ffffff;
-}
-
-.code {
-	color: #ffffff;
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	color: #ffffff;
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	color: #ffffff;
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid #ffffff;
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(50, 48, 44, 1);
-}
-.highlight-gray {
-	color: rgba(115, 114, 110, 1);
-	fill: rgba(115, 114, 110, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(205, 60, 58, 1);
-	fill: rgba(205, 60, 58, 1);
-}
-.highlight-default_background {
-	color: rgba(50, 48, 44, 1);
-}
-.highlight-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.highlight-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(115, 114, 110, 1);
-	fill: rgba(115, 114, 110, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(205, 60, 58, 1);
-	fill: rgba(205, 60, 58, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: #2d2d2d;
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.block-color-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
-.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
-.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
-.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
-.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
-.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
-.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
-.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
-.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
-.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="20e39fdb-5bb8-8076-bcf7-fe30365dc7dd" class="page sans"><header><img class="page-cover-image" src="DS_Associate_-_LinkedIn.png" style="object-position:center 50%"/><h1 class="page-title">Hi, I’m Bryan Paul! 👋</h1><p class="page-description"></p></header><div class="page-body"><div id="20e39fdb-5bb8-8177-9bc1-e487acbb813c" class="column-list"><div id="20e39fdb-5bb8-812c-863e-f9dc2d2b03c3" style="width:50%" class="column"><h2 id="20e39fdb-5bb8-8117-920a-dce7fbbf246f" class="">Embedded Systems | Cloud Computing</h2><p id="20e39fdb-5bb8-810e-a213-d59af5473d2a" class="">A tech-savvy individual dedicated to lifelong learning, I specialize in embedded systems, with a focus on designing software architectures for diverse projects. While this is my core area of expertise, I actively explore other technologies. Earning my AWS and Alteryx certification is a reflection of this commitment to continuous growth.</p><p id="20e39fdb-5bb8-81ae-899c-e5a7f587ddc2" class="">Outside of academics, I have been actively involved in extracurricular activities, serving as an executive officer of an AcadArena alliance for two consecutive years.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="20e39fdb-5bb8-8160-8047-d0ebcf2896ec"><div style="width:100%"><p id="20e39fdb-5bb8-8164-bb86-d7ebdb450aa6" class="">Want to work together? </p><hr id="20e39fdb-5bb8-815b-8cd4-d9afa3a724e6"/><p id="20e39fdb-5bb8-81ad-8eba-e06135ebb57b" class=""><a href="mailto:bryanpaul.careers@gmail.com">✉️ Send me an email </a></p><p id="20e39fdb-5bb8-8182-8de0-caecf6f5ea2f" class="">DM me on LinkedIn: <a href="https://www.linkedin.com/in/bpadl/">@bpadl</a></p><p id="22339fdb-5bb8-80dd-b694-c88ec8abe0c4" class="">View my Creative Portfolio: <a href="https://www.behance.net/konzaibonzai">@konzaibonzai</a></p></div></figure><p id="20e39fdb-5bb8-8145-8b82-e86a33508119" class="">
-</p></div><div id="20e39fdb-5bb8-81bb-8c3d-f9ad5e2f765e" style="width:50%" class="column"><figure id="22339fdb-5bb8-8093-b7ad-f097c9823719" class="image"><a href="83d2cf78-41c9-46c8-a649-d9d31bd8a578.png"><img style="width:556.484375px" src="83d2cf78-41c9-46c8-a649-d9d31bd8a578.png"/></a></figure></div></div><hr id="22339fdb-5bb8-806d-a8b4-d6a968733fdd"/><figure id="20e39fdb-5bb8-8147-985d-e9a8161e7847" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>My Certifications</mtext></mrow><annotation encoding="application/x-tex">\text{My Certifications}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">My Certifications</span></span></span></span></span></span></div></figure><div id="20e39fdb-5bb8-818c-b076-ee8403785e50" class="column-list"><div id="20e39fdb-5bb8-819e-843a-d7c975308e73" style="width:100%" class="column"><figure id="20e39fdb-5bb8-81c5-8348-e254ef0eb8a7" class="image"><a href="image_(1).png"><img style="width:217.5px" src="image_(1).png"/></a></figure></div><div id="20e39fdb-5bb8-81c2-b410-f97b78fa948f" style="width:100%" class="column"><figure id="20e39fdb-5bb8-81da-b18c-f728ba249106" class="image"><a href="image.png"><img style="width:217.5px" src="image.png"/></a></figure></div><div id="20e39fdb-5bb8-81be-82fc-d97ccf7db776" style="width:100%" class="column"><figure id="20e39fdb-5bb8-8140-bb1f-f1095dce2c97" class="image"><a href="c.png"><img style="width:217.5px" src="c.png"/></a></figure></div><div id="20e39fdb-5bb8-81d3-9a44-de16baea2f2f" style="width:100%" class="column"><figure id="20e39fdb-5bb8-811e-b429-c9d904496497" class="image"><a href="css__1_-removebg-preview.png"><img style="width:217.5px" src="css__1_-removebg-preview.png"/></a></figure></div></div><hr id="20e39fdb-5bb8-8152-a038-eb0f30e67885"/><figure id="20e39fdb-5bb8-81c3-93f6-db200b5e6616" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Portfolio</mtext></mrow><annotation encoding="application/x-tex">\text{Portfolio}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Portfolio</span></span></span></span></span></span></div></figure><div id="22739fdb-5bb8-80d8-8ac8-c98ce28f58ad" class="column-list"><div id="22739fdb-5bb8-80f7-99ac-f59252c22f09" style="width:25%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22739fdb-5bb8-8054-bc69-f662c2cf8099"><div style="width:100%"><figure id="22739fdb-5bb8-80cd-beb3-d1991c811d7a" class="image"><a href="Design_Pitch_PPT.png"><img style="width:213.25px" src="Design_Pitch_PPT.png"/></a></figure><hr id="22739fdb-5bb8-8029-9a92-cc6170d7fcf4"/><p id="22839fdb-5bb8-805b-9c74-df2686bab1d4" class="">ShroomGuard</p></div></figure></div><div id="22739fdb-5bb8-8040-a164-db4651bc8684" style="width:25%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22739fdb-5bb8-80dc-bad4-d37269eedb2a"><div style="width:100%"><figure id="22739fdb-5bb8-80ed-ba67-f826f0cabeef" class="image"><a href="Design_Pitch_PPT_(3).png"><img style="width:213.25px" src="Design_Pitch_PPT_(3).png"/></a></figure><hr id="22739fdb-5bb8-80b8-8afa-ed8801146bc6"/><p id="22839fdb-5bb8-805d-8e52-f3c0d0d460ff" class="">ThermoDeliver</p></div></figure></div><div id="22739fdb-5bb8-806a-8d07-cb2d8bd931de" style="width:25%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22739fdb-5bb8-800a-aa88-e7c09fe04421"><div style="width:100%"><figure id="22739fdb-5bb8-8099-b532-cd1e1f62fa0f" class="image"><a href="Design_Pitch_PPT_(4).png"><img style="width:213.25px" src="Design_Pitch_PPT_(4).png"/></a></figure><hr id="22739fdb-5bb8-8027-a6b6-fda970a1ce98"/><p id="22739fdb-5bb8-80e2-8e83-de4ed7808858" class=""><a href="https://github.com/brruhyan">Other Projects</a></p></div></figure></div><div id="22739fdb-5bb8-805d-b838-ccb82a23e436" style="width:25%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22739fdb-5bb8-802b-9d6b-cbc6702d84ff"><div style="width:100%"><figure id="22739fdb-5bb8-80bf-bf03-dca8de89613f" class="image"><a href="Design_Pitch_PPT_(8).png"><img style="width:213.25px" src="Design_Pitch_PPT_(8).png"/></a></figure><hr id="22739fdb-5bb8-8025-9dd2-c31f82796970"/><p id="22739fdb-5bb8-8023-ba01-dff6e7c459fe" class=""><a href="https://www.linkedin.com/in/bpadl/details/certifications/">Awards &amp; Honors</a></p></div></figure></div></div><hr id="22339fdb-5bb8-8077-bf98-cfd9c169c837"/><figure id="22839fdb-5bb8-80a7-a320-f8fb5087bcb7" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Projects</mtext></mrow><annotation encoding="application/x-tex">\text{Projects}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Projects</span></span></span></span></span></span></div></figure><div id="22839fdb-5bb8-8001-acc2-e0d22158c06a" class="column-list"><div id="22839fdb-5bb8-8095-8c8f-ce92ee6989d2" style="width:50%" class="column"><h2 id="22839fdb-5bb8-80d4-87ad-f79914414033" class="">ShroomGuard</h2><p id="22839fdb-5bb8-808c-9d2a-f13604e0ac3e" class="">Project Description</p><ul id="22839fdb-5bb8-8048-b2de-faf6fb458d98" class="bulleted-list"><li style="list-style-type:disc">A camera system powered by a deep learning model trained to classify oyster mushroom caps into three categories: <strong>Ready</strong>, <strong>Not_Ready</strong>, and <strong>Overdue</strong>.</li></ul><ul id="22839fdb-5bb8-808b-a036-ff39a05a10e3" class="bulleted-list"><li style="list-style-type:disc">Trained specifically under the <strong>USDA 81 FR 51297</strong> and <strong>PNS/BAFS 195:2017 </strong>standards, which guide the model’s decisions in accurately identifying mushrooms that are ready for harvest based on internationally and locally recognized quality indicators.</li></ul></div><div id="22839fdb-5bb8-8058-b45b-e97a86dc4168" style="width:50%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22839fdb-5bb8-805e-8ba2-e2d615bd091b"><div style="width:100%"><div id="22839fdb-5bb8-8024-8d53-e25ff5029b35" class="column-list"><div id="22839fdb-5bb8-8081-ab4a-cc8a31bed585" style="width:100%" class="column"><figure id="22839fdb-5bb8-80d0-a3d0-edf3a74afdac" class="image"><a href="Design_Pitch_PPT_(5).png"><img style="width:234.25px" src="Design_Pitch_PPT_(5).png"/></a></figure></div><div id="22839fdb-5bb8-803e-8e81-e9ffb78c1175" style="width:100%" class="column"><figure id="22839fdb-5bb8-8092-9f8c-d003883425b1" class="image"><a href="Design_Pitch_PPT_(7).png"><img style="width:234.25px" src="Design_Pitch_PPT_(7).png"/></a></figure></div></div></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22839fdb-5bb8-804c-9fe6-e87c3cb6811b"><div style="width:100%"><div id="22839fdb-5bb8-80d2-867b-f032b5a2b537" class="column-list"><div id="22839fdb-5bb8-80dc-9491-fbe641d41d93" style="width:100%" class="column"><figure id="22839fdb-5bb8-809e-b5b0-db6b2f1c4d88" class="image"><a href="d3580148-9e82-46aa-8cc3-b784493680d0.jpg"><img style="width:140.8125px" src="d3580148-9e82-46aa-8cc3-b784493680d0.jpg"/></a></figure></div><div id="22839fdb-5bb8-803a-93c5-ccb15b3bffc2" style="width:100%" class="column"><figure id="22839fdb-5bb8-80c3-b7bc-f33ddc2341ac" class="image"><a href="155b6be7-9fe6-4082-9546-208f1261165b.png"><img style="width:1542px" src="155b6be7-9fe6-4082-9546-208f1261165b.png"/></a></figure></div><div id="22839fdb-5bb8-801a-a3bc-c4d4bb24e5cf" style="width:100%" class="column"><figure id="22839fdb-5bb8-80e9-8b65-d66340677b31" class="image"><a href="b4ceae67-2277-4d60-a08a-a07c68baae81.jpg"><img style="width:140.8125px" src="b4ceae67-2277-4d60-a08a-a07c68baae81.jpg"/></a></figure></div></div></div></figure></div></div><hr id="22839fdb-5bb8-80eb-9c75-d8babfdcd52a"/><div id="22839fdb-5bb8-8021-8d51-eb5c267fe60f" class="column-list"><div id="22839fdb-5bb8-8051-b709-de02b65b8773" style="width:100%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22839fdb-5bb8-80dd-8cb8-dbc1f7f8175f"><div style="width:100%"><figure id="22839fdb-5bb8-8062-a3c3-e68978b1bc11" class="image"><a href="Design_Pitch_PPT_(3)_1.png"><img style="width:514.5px" src="Design_Pitch_PPT_(3)_1.png"/></a></figure></div></figure></div><div id="22839fdb-5bb8-8008-bb0d-eae3af988db3" style="width:100%" class="column"><h2 id="22839fdb-5bb8-805e-a7a2-c723a231eedc" class="">ThermoDeliver</h2><p id="22839fdb-5bb8-8037-b07e-d18fab713124" class="">Project Description</p><ul id="22839fdb-5bb8-8031-9ac1-d08c030058fa" class="bulleted-list"><li style="list-style-type:disc">A sensor-driven temperature control system that automatically adjusts temperature settings based on user-defined configurations from a cloud-based dashboard.</li></ul><ul id="22839fdb-5bb8-802e-99bc-cd818c0f245a" class="bulleted-list"><li style="list-style-type:disc">It utilizes active heating via a T<strong>hermoelectric Peltier</strong> module, working in tandem with dual <strong>DHT22</strong> sensors for real-time monitoring and regulation.</li></ul><p id="22839fdb-5bb8-80dc-ac91-e0a856230f90" class="">
-</p></div></div><hr id="22839fdb-5bb8-8020-8648-d4646ad33755"/><figure id="22339fdb-5bb8-80f1-ba5b-d1cd2cd42226" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Engagements</mtext></mrow><annotation encoding="application/x-tex">\text{Engagements}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Engagements</span></span></span></span></span></span></div></figure><div id="22339fdb-5bb8-80c5-afc3-e761b3618f8f" class="column-list"><div id="22339fdb-5bb8-8089-902a-c8fac74e1191" style="width:43.75%" class="column"><h2 id="22339fdb-5bb8-809f-87fe-f4b3dfdb7be3" class="">Site Reliability Engineer Intern</h2><p id="22339fdb-5bb8-806a-af08-cd78df9a261e" class="">Electronic Transfer and Advance Processing Inc.</p><ul id="22339fdb-5bb8-80ad-ac56-efcf9dca74b8" class="bulleted-list"><li style="list-style-type:disc">Completed a 3-month internship at eTap Inc., focusing on AWS cloud infrastructure while gaining hands-on experience with key Site Reliability Engineering (SRE) concepts such as Docker and scripting.</li></ul><p id="22339fdb-5bb8-8049-9dc8-d909606e3a6b" class="">
-</p></div><div id="22339fdb-5bb8-80a0-978f-c7bedf9fce2c" style="width:56.25%" class="column"><figure id="22339fdb-5bb8-8056-985b-e70fc90103c5" class="image"><a href="9ec86c3f-2f63-404e-8f86-ee2c1d9919c8.png"><img style="width:543.2937181663838px" src="9ec86c3f-2f63-404e-8f86-ee2c1d9919c8.png"/></a></figure></div></div><hr id="22339fdb-5bb8-801c-b4b6-f1ff8112e9ca"/><div id="22339fdb-5bb8-80b8-8e89-fd1b556a09b9" class="column-list"><div id="22339fdb-5bb8-808c-8d58-e82675db9135" style="width:50%" class="column"><figure id="22339fdb-5bb8-80cd-a664-c42a07579bcf" class="image"><a href="a41564df-acd7-4da1-9d41-f57049a983b5.jpg"><img style="width:378.40625px" src="a41564df-acd7-4da1-9d41-f57049a983b5.jpg"/></a></figure></div><div id="22339fdb-5bb8-80b8-b4d8-f2ac6186f1ef" style="width:50%" class="column"><h2 id="22339fdb-5bb8-80bc-a65f-d0378f80aa86" class="">CpE Summit 2025 Design Project Pitch </h2><p id="22339fdb-5bb8-8009-89f1-fd8353c05cb7" class="">Computer Engineering Department</p><ul id="22339fdb-5bb8-80e7-b54f-fc55278cb2ed" class="bulleted-list"><li style="list-style-type:disc">Presented a design pitch for ShroomGuard — an automated monitoring system tailored for oyster mushrooms that alerts farmers when mushrooms are ready for harvest. Secured 2nd Runner-Up in the competition.</li></ul><p id="22339fdb-5bb8-80d3-8578-e02a61510184" class="">
-</p></div></div><hr id="22339fdb-5bb8-8097-bb7c-f1f223c2ca5d"/><div id="22339fdb-5bb8-80b9-8b97-e696076618f0" class="column-list"><div id="22339fdb-5bb8-80f3-b1f3-ecea775d0b91" style="width:50%" class="column"><h2 id="22339fdb-5bb8-80e0-a5f7-e767221f2100" class="">Alliance Executive Officer</h2><p id="22339fdb-5bb8-8066-b1b6-ee559f8a2777" class="">Tempest Gaming Society</p><ul id="22339fdb-5bb8-80c8-bd2e-c078fc9805f4" class="bulleted-list"><li style="list-style-type:disc">Served as the Communications Director of Tempest Gaming Society, an organization under AcadArena. In this role, I led the creation and management of visual materials, ensuring consistent and engaging representation of the organization across multiple social media platforms.</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22339fdb-5bb8-8009-a43c-f6e35ba4d491"><div style="width:100%"><p id="22339fdb-5bb8-80ef-a588-fa20735987cb" class=""><strong>View my Creative Portfolio</strong></p><hr id="22339fdb-5bb8-8046-aec4-f759df54a057"/><p id="22339fdb-5bb8-805a-b5d1-d164ffb900a9" class="">Behance: <a href="https://www.behance.net/konzaibonzai">@konzaibonzai</a></p><p id="22339fdb-5bb8-8019-a469-f140d70be229" class="">TikTok: <a href="https://www.tiktok.com/@bonzaikonzai">@bonzaikonzai</a></p></div></figure><p id="22639fdb-5bb8-808d-8b4a-d8cbbf40710d" class="">
-</p></div><div id="22339fdb-5bb8-8017-9971-d0fd24838b68" style="width:50%" class="column"><figure id="22339fdb-5bb8-80a7-a852-ffa52e1061c9" class="image"><a href="sd.jpg"><img style="width:432.484375px" src="sd.jpg"/></a></figure></div></div><p id="22839fdb-5bb8-8087-9f94-d93a56cd1317" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Hi, I’m Bryan Paul! 👋</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #181818;
+      --text-main: #f3f3f3;
+      --text-secondary: #b3b3b3;
+      --accent: #3B82F6;
+      --accent-hover: #6c#a2f8;
+    }
+    html, body {
+      background: #181818;
+      color: var(--text-main);
+      font-family: 'Inter', ui-sans-serif, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    .main-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px 18px 48px;
+      background: linear-gradient(90deg, #18181b 60%, #19171b 100%);
+      box-sizing: border-box;
+      position: relative;
+      z-index: 10;
+    }
+    .header-logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f3f3f3;
+      letter-spacing: -1px;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .header-nav a {
+      color: #f3f3f3;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.18s;
+      position: relative;
+      padding: 2px 0;
+    }
+    .header-nav a:hover {
+      color: var(--accent);
+    }
+    .header-theme {
+      font-size: 1.2rem;
+      margin-left: 16px;
+      color: #f3f3f3;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.18s;
+    }
+    .header-theme:hover {
+      opacity: 1;
+    }
+    
+    .hero-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 64px;
+      padding: 0 5vw;
+      background: #181818;
+      background-color: rgba(255, 255, 255, 0.02); /* light white tint */
+      backdrop-filter: blur(2px); /* Optional: adds a blur effect */
+    }
+    .hero-left {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 600px;
+    }
+    .hero-greeting {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5em;
+      letter-spacing: -1px;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.5em;
+      letter-spacing: -2px;
+    }
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 1.00rem;
+      margin-bottom: 2.5em;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 1.5em;
+    }
+    .hero-btn, .hero-btn-outline {
+      padding: 1em 2.5em;
+      border-radius: 32px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      outline: none;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: none;
+    }
+    .hero-btn {
+      background: var(--accent);
+      color: #181818;
+      border: 2px solid var(--accent);
+    }
+    .hero-btn:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+    .hero-btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    .hero-btn-outline:hover {
+      background: var(--accent);
+      color: #181818;
+    }
+    .hero-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-image-card {
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(ellipse at top left, #0a1a2f 80%, #181818 100%);
+      border-radius: 28px;
+      border: 5px solid var(--accent);
+      box-shadow: 0 8px 48px 0 rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image-card svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .about-title {
+      color: #f3f3f3;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1em;
+    }
+    .about-desc {
+      color: #b3b3b3;
+      font-size: 1.00rem;
+      margin-bottom: 1.5em;
+      line-height: 1.6;
+    }
+    .about-contact-card {
+      background: #232323;
+      border-radius: 16px;
+      padding: 1.5em 1.2em;
+    }
+    .about-contact-title {
+      color: #f3f3f3;
+      font-weight: 600;
+      margin-bottom: 0.7em;
+    }
+    .about-contact-btn {
+      display: inline-block;
+      color: #fff;
+      background: #3B82F6;
+      border-radius: 8px;
+      padding: 0.7em 1.2em;
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 0.7em;
+      transition: background 0.2s;
+    }
+    .about-contact-btn:hover {
+      background: #6ca2f8;
+    }
+    .about-linkedin {
+      margin-top: 0.6em;
+      color: #b3b3b3;
+    }
+    .about-linkedin a {
+      color: #3B82F6;
+      text-decoration: none;
+    }
+    .about-linkedin a:hover {
+      text-decoration: underline;
+    }
+    .about-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .about-image-placeholder {
+      width: 520px;
+      height: 400px;
+      background: #232323;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #3B82F6;
+      color: #b3b3b3;
+      font-size: 1.1rem;
+    }
+    .about-section{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 64px;
+      padding: 0 5vw;
+      min-height: 103vh;
+      background: #181818;
+    }
+    .about-left{
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 600px;
+    }
+    .about-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-section{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+      padding: 0 5vw 0 5vw;
+      min-height: 103vh;
+      background: #181818;
+      margin-bottom: 0;
+    }
+
+    .certification-section{
+        display: flex;
+        padding-bottom: 80px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 48px 5vw 0 5vw; /* Add top padding for spacing */
+        min-height: unset;
+        background: #181818;
+    }
+  .certification-grid {
+    overflow: visible;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: flex-start;
+    align-items: stretch;
+    max-width: 1560px;
+    margin: 2.5em auto 0 auto;
+  }
+  .certification-card {
+    background: #232323;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5em 2em;
+    margin-bottom: 0;
+    border: 1px solid #3B82F6;
+    transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+    will-change: transform;
+  }
+  .certification-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 32px 0 rgba(59,130,246,0.18);
+    z-index: 2;
+  }
+  .certification-img-placeholder {
+    width: 60px;
+    height: 60px;
+    background: #181818;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+    overflow: hidden;
+    color: #b3b3b3;
+    font-size: 1rem;
+  }
+  .certification-title {
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.5em 0;
+    text-align: center;
+    width: 100%;
+  }
+  .certification-desc {
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    margin: 0 0 0.5em 0;
+    text-align: center;
+  }
+/* Hide hamburger by default */
+.hamburger-menu {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #f3f3f3;
+}
+
+/* Mobile overlay nav - hidden by default */
+.mobile-nav-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  /* Same as before */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background: rgba(24,24,24,0.9);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Make sure links are centered vertically */
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Links styling */
+.mobile-nav-links a {
+  color: #f3f3f3;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+  .reveal {
+  opacity: 0;
+  transform-style: preserve-3d;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+  will-change: transform, opacity;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+    
+.about-inner {
+  display: flex;
+  gap: 64px;
+  justify-content: center;
+  align-items: center;
+}
+#projects,
+#about  {
+  padding-bottom: 80px;
+}
+
+#certifications {
+  overflow: visible;
+}
+
+/* Show hamburger icon on mobile */
+@media (max-width: 900px) {
+  .header-nav {
+    display: none;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+}
+@media (max-width: 900px) {
+  .about-inner {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+  .about-left {
+    align-items: center;
+    text-align: center;
+  }
+}
+ 
+    @media (max-width: 900px) {
+      .hero-main,
+      .about-section {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 2vw;
+      }
+      .hero-left {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+      }
+      .hero-right,
+      .about-right {
+        justify-content: center;
+      }
+    }
+  @media (max-width: 1100px) {
+    .certification-grid {
+      gap: 24px;
+    }
+    .certification-card {
+      width: 45vw;
+      min-width: 180px;
+      max-width: 260px;
+    }
+  }
+ @media (max-width: 1500px) {
+    .certification-grid {
+      max-width: 100vw;
+      gap: 24px;
+    }
+    .certification-card {
+      width: 320px;
+    }
+  }
+  @media (max-width: 1200px) {
+    .certification-card {
+      width: 45vw;
+      min-width: 220px;
+      max-width: 320px;
+    }
+  }
+  @media (max-width: 900px) {
+    .certification-grid {
+      gap: 18px;
+    }
+    .certification-card {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+  }
+    @media (max-width: 600px) {
+      .hero-main,
+      .about-section {
+        padding: 24px 0;
+      }
+      .hero-title,
+      .about-title {
+        font-size: 2rem;
+      }
+      .hero-greeting,
+      .about-title {
+        font-size: 1.3rem;
+      }
+      .hero-image-card,
+      .about-image-placeholder {
+        width: 220px;
+        height: 220px;
+      }
+      .hero-desc,
+      .about-desc{
+        font-size: 1.00rem;
+        padding: 0 20px;
+      }
+      .hero-btn,
+      .hero-btn-outline {
+        font-size: 1rem;
+        padding: 0.8em 1.5em;
+      }
+    }
+    @media (max-width: 900px) {
+  .header-nav {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-logo">Portfolio</div>
+    <nav class="header-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  <!-- Hamburger (mobile only) -->
+  <div class="hamburger-menu" onclick="toggleMobileNav()">
+    &#9776;
+  </div>
+  </header>
+
+<nav class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-links">
+    <a href="#home" onclick="closeMobileNav()">Home</a>
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#projects" onclick="closeMobileNav()">Projects</a>
+    <a href="#certifications" onclick="closeMobileNav()">Certifications</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+</nav>
+  <section id="home" class="hero-main reveal">
+    <div class="hero-left">
+      <div class="hero-greeting">Hello, I'm Bryan Paul!</div>
+      <div class="hero-title">Computer Engineer</div>
+      <div class="hero-desc">
+        I specialize in embedded systems, primarily focusing on software development. My work includes integrating cloud solutions across a wide range of projects..
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="hero-btn">My Work</a>
+        <a href="mailto:bryanpaul.careers@gmail.com" class="hero-btn-outline">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-right">
+    </div>
+  </section>
+
+<!-- About Section -->
+<section id="about" class="about-section reveal" style="flex-direction: column; align-items: stretch;">
+  <div style="width:100%; text-align:center; margin-bottom: 0.8em;">
+    <h2 style="color: var(--text-main); font-size: 2.3rem; font-weight: 800; margin: 0 0 0.15em 0; letter-spacing: -1px;">
+      About Me
+    </h2>
+    <div style="width: 60px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px;"></div>
+  </div>
+  <div class="about-inner">
+    <div class="about-left">
+      <h3 class="about-title">Computer Engineer</h3>
+      <p class="about-desc">
+        My primary expertise lies within the field of embedded systems, where I develop backend functionalities and integrate cloud solutions to various projects.
+        <br><br>
+        Outside of academics, I have been actively involved in extracurricular activities, serving as an executive officer of an AcadArena alliance for two consecutive years.
+      </p>
+
+        <a href="mailto:bryanpaul.careers@gmail.com" class="about-contact-btn">&#9993; Want to Work Together?</a>
+    </div>
+    <div class="about-right">
+      <div class="about-image-placeholder">
+        <img src="toga-pic.jpg" alt="Bryan Paul" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Projects Section -->
+<style>
+  .project-card {
+    background: #232323;
+    border: 1px solid #3B82F6;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5em;
+    transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+    will-change: transform;
+  }
+  .project-card:hover {
+    transform: translateY(-5px) scale(1.001);
+    box-shadow: 0 12px 32px 0 rgba(59,130,246,0.18);
+    z-index: 2;
+  }
+</style>
+<!-- Projects Section -->
+<section id="projects" class="certification-section reveal">
+  <div style="width:100%; text-align:center; margin-bottom: 0;">
+    <h2 style="color: var(--text-main); font-size: 2.3rem; font-weight: 800; margin: 0 0 0.15em 0; letter-spacing: -1px;">
+      Portfolio
+    </h2>
+    <div style="width: 60px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px;"></div>
+  </div>
+  <div class="certification-grid">
+    <!-- Project Card 1 -->
+    <div class="certification-card">
+      <div class="certification-img-placeholder" style="height: 180px; width: 100%; margin-bottom: 1em; border-radius: 10px; overflow: hidden;">
+        <img src="ShroomGuard.png" alt="ShroomGuard" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div style="color:var(--accent); font-size:0.95rem; font-weight:600; margin-bottom:0.2em;">Project</div>
+      <div class="certification-title" style="text-align:left;">ShroomGuard</div>
+      <div class="certification-desc" style="text-align:left;">
+        Uses a deep learning model to detect the optimal harvest time of oyster mushrooms based on global standards.
+      </div>
+    </div>
+
+    <!-- Project Card 2 -->
+    <div class="certification-card">
+      <div class="certification-img-placeholder" style="height: 180px; width: 100%; margin-bottom: 1em; border-radius: 10px; overflow: hidden;">
+        <img src="ThermoDeliver.png" alt="ThermoDeliver" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div style="color:var(--accent); font-size:0.95rem; font-weight:600; margin-bottom:0.2em;">Project</div>
+      <div class="certification-title" style="text-align:left;">ThermoDeliver</div>
+      <div class="certification-desc" style="text-align:left;">
+        A Peltier-based heating/cooling food delivery system with PID control and a cloud dashboard for real-time temperature management.
+      </div>
+    </div>
+
+    <!-- Project Card 3 -->
+    <div class="certification-card">
+      <div class="certification-img-placeholder" style="height: 180px; width: 100%; margin-bottom: 1em; border-radius: 10px; overflow: hidden;">
+        <img src="OtherProjects.png" alt="Other Projects" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div style="color:var(--accent); font-size:0.95rem; font-weight:600; margin-bottom:0.2em;">Project</div>
+      <div class="certification-title" style="text-align:left;">Other Projects</div>
+      <div class="certification-desc" style="text-align:left;">
+        Includes Arduino-based bots, a chest X-ray classifier, and other prototypes built during my Computer Engineering degree.
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .certification-card:hover {
+    transform: translateY(-5px) scale(1.001);
+    box-shadow: 0 12px 32px 0 rgba(59,130,246,0.18);
+    z-index: 2;
+  }
+</style>
+<section id="certifications" class="certification-section reveal">
+  <div style="width:100%; text-align:center; margin-bottom: 0;">
+    <h2 style="color: var(--text-main); font-size: 2.3rem; font-weight: 800; margin: 0 0 0.15em 0; letter-spacing: -1px;">
+      My Certifications
+    </h2>
+    <div style="width: 60px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px;"></div>
+  </div>
+  <div class="certification-grid">
+    <!-- Card 1 -->
+    <div class="certification-card">
+      <div class="certification-img-placeholder"> <img src="cloud_prac.png" alt="Bryan Paul" style="width: 100%; height: 100%; object-fit: cover;"> </div>
+      <div style="color:var(--accent); font-size:0.7rem; font-weight:600; margin-bottom:0.2em;">Certification</div>
+      <div class="certification-title" style="color:#fff; font-size:1.1rem; font-weight:700; margin-bottom:0.2em; text-align:left;">AWS Certified Cloud Practitioner</div>
+      <div style="color:#b3b3b3; font-size:0.95rem; margin-bottom:0.2em;">AWS Cloud Services</div>
+      <div style="color:#b3b3b3; font-size:0.9rem; margin-bottom:0.7em;">May 2025</div>
+      <div class="certification-desc" style="text-align:left;">
+        Gained fundamental understanding of IT services and their uses in the AWS Cloud. Demonstrated cloud fluency and foundational AWS knowledge
+      </div>
+      <div style="margin:0.7em 0 0.2em 0;">
+        <span style="color:#3B82F6; font-size:0.95rem;">AWS Cloud Services</span>
+        <span style="color:#b3b3b3; font-size:0.95rem; margin-left:1em;">Cloud Computing</span>
+      </div>
+      <a href="https://www.credly.com/badges/17378161-b5f0-4784-8dce-06cdcf8a0430/linked_in?t=svv1sh" style="color:#3B82F6; font-size:0.95rem; text-decoration:none; margin-top:0.5em;">&#128279; Verify</a>
+    </div>
+    <!-- Card 2 -->
+    <div class="certification-card">
+      <div class="certification-img-placeholder"><img src="alteryx.png" alt="Bryan Paul" style="width: 100%; height: 100%; object-fit: cover;"></div>
+      <div style="color:var(--accent); font-size:0.7rem; font-weight:600; margin-bottom:0.2em;">Certification</div>
+      <div class="certification-title" style="color:#fff; font-size:1.1rem; font-weight:700; margin-bottom:0.2em; text-align:left;">Alteryx Designer Core Certified</div>
+      <div style="color:#b3b3b3; font-size:0.95rem; margin-bottom:0.2em;">Alteryx</div>
+      <div style="color:#b3b3b3; font-size:0.9rem; margin-bottom:0.7em;">June 2025</div>
+      <div class="certification-desc" style="text-align:left;">
+        Able to use the core toolset to clean, prepare, blend, parse, transform, and analyze data. Demonstrated ability to use the tools to solve real-world analytics problems.
+      </div>
+      <div style="margin:0.7em 0 0.2em 0;">
+        <span style="color:#3B82F6; font-size:0.95rem;">Alteryx Designer</span>
+        <span style="color:#b3b3b3; font-size:0.95rem; margin-left:1em;">Data Analysis</span>
+      </div>
+      <a href="https://www.credly.com/badges/0b79ea6d-8d02-4a74-ac4f-413d29af073a/public_url" style="color:#3B82F6; font-size:0.95rem; text-decoration:none; margin-top:0.5em;">&#128279; Verify</a>
+    </div>
+    <!-- Card 3 -->
+    <div class="certification-card">
+      <div class="certification-img-placeholder"><img src="data_literacy.png" alt="Bryan Paul" style="width: 100%; height: 100%; object-fit: cover;"></div>
+      <div style="color:var(--accent); font-size:0.7rem; font-weight:600; margin-bottom:0.2em;">Certification</div>
+      <div class="certification-title" style="color:#fff; font-size:1.1rem; font-weight:700; margin-bottom:0.2em; text-align:left;">Data Literacy</div>
+      <div style="color:#b3b3b3; font-size:0.95rem; margin-bottom:0.2em;">DataCamp</div>
+      <div style="color:#b3b3b3; font-size:0.9rem; margin-bottom:0.7em;">August 2024</div>
+      <div class="certification-desc" style="text-align:left;">
+        Demonstrated roficiency in analytics fundamentals, data visualization, and data storytelling.
+      </div>
+      <div style="margin:0.7em 0 0.2em 0;">
+        <span style="color:#3B82F6; font-size:0.95rem;">Data Literacy</span>
+      </div>
+      <a href="https://www.datacamp.com/skill-verification/DL0032666303257" style="color:#3B82F6; font-size:0.95rem; text-decoration:none; margin-top:0.5em;">&#128279; Verify</a>
+    </div>
+    <!-- Card 4 -->
+    <div class="certification-card">
+      <div class="certification-img-placeholder"><img src="OCI.png" alt="Bryan Paul" style="width: 100%; height: 100%; object-fit: cover;"></div>
+      <div style="color:var(--accent); font-size:0.7rem; font-weight:600; margin-bottom:0.2em;">Certification</div>
+      <div class="certification-title" style="color:#fff; font-size:1.1rem; font-weight:700; margin-bottom:0.2em; text-align:left;">OCI Foundations Associate</div>
+      <div style="color:#b3b3b3; font-size:0.95rem; margin-bottom:0.2em;">Oracle</div>
+      <div style="color:#b3b3b3; font-size:0.9rem; margin-bottom:0.7em;">July 2025</div>
+      <div class="certification-desc" style="text-align:left;">
+        Entry-level certification validating overall understanding of the OCI, its services, and basic architecture best practices.
+      </div>
+      <div style="margin:0.7em 0 0.2em 0;">
+        <span style="color:#3B82F6; font-size:0.95rem;">Oracle Cloud</span>
+        <span style="color:#b3b3b3; font-size:0.95rem; margin-left:1em;">Cloud Computing</span>
+      </div>
+      <a href="#" style="color:#3B82F6; font-size:0.95rem; text-decoration:none; margin-top:0.5em;">&#128279; Verify</a>
+    </div>
+  </div>
+</section>
+</body>
+<script>
+function toggleMobileNav() {
+  const nav = document.getElementById("mobileNav");
+  nav.classList.toggle("active");
+}
+
+function closeMobileNav() {
+  const nav = document.getElementById("mobileNav");
+  nav.classList.remove("active");
+}
+
+// Optional: Close when any link inside the overlay is clicked
+document.getElementById("mobileNav").addEventListener("click", function(e) {
+  if (e.target.tagName === "A") {
+    closeMobileNav();
+  }
+});
+</script>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const options = {
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target); // Only animate once
+      }
+    });
+  }, options);
+
+  reveals.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+</html>
