@@ -11,7 +11,7 @@
       --text-main: #f3f3f3;
       --text-secondary: #b3b3b3;
       --accent: #3B82F6;
-      --accent-hover: #6c#a2f8;
+      --accent-hover: #6ca2f8;
     }
     html, body {
       background: #181818;
@@ -78,7 +78,10 @@
       background: #181818;
       background-color: rgba(255, 255, 255, 0.02); /* light white tint */
       backdrop-filter: blur(2px); /* Optional: adds a blur effect */
+      position: relative;
+      overflow: hidden;
     }
+
     .hero-left {
       flex: 1.2;
       display: flex;
@@ -86,6 +89,7 @@
       justify-content: center;
       align-items: flex-start;
       max-width: 600px;
+      z-index: 1;
     }
     .hero-greeting {
       font-size: 2.3rem;
@@ -150,6 +154,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 1;
     }
     .hero-image-card {
       width: 320px;
@@ -302,6 +307,7 @@
     border: 1px solid #3B82F6;
     transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
     will-change: transform;
+    cursor: pointer;
   }
   .certification-card:hover {
     transform: translateY(-10px) scale(1.03);
@@ -410,6 +416,59 @@
 
 #certifications {
   overflow: visible;
+}
+
+/* Project Modal Styles */
+.project-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+.project-modal.active {
+  display: flex;
+}
+.project-modal-content {
+  align-items: stretch; 
+  border-radius: 18px;
+  padding: 1.2em 1.2em 1em 1.2em;
+  max-width: 480px;
+  width: 95vw;
+  color: #fff;
+  position: relative;
+  animation: modalFadeIn 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+@keyframes modalFadeIn {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.project-modal-close {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  backdrop-filter: blur(8px);      /* Add blur to the background */
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+.project-modal-content img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1em;
+  display: block;
+  margin-left: 0;   /* Remove auto margin */
+  margin-right: 0;  /* Remove auto margin */
+}
+.project-modal-close:hover {
+  color: #fff;
 }
 
 /* Show hamburger icon on mobile */
@@ -588,7 +647,6 @@
   </div>
 </section>
 
-
 <!-- Projects Section -->
 <style>
   .project-card {
@@ -620,7 +678,7 @@
   </div>
   <div class="certification-grid">
     <!-- Project Card 1 -->
-    <div class="certification-card">
+    <div class="certification-card" onclick="openProjectModal(0)">
       <div class="certification-img-placeholder" style="height: 180px; width: 100%; margin-bottom: 1em; border-radius: 10px; overflow: hidden;">
         <img src="ShroomGuard.png" alt="ShroomGuard" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
@@ -632,7 +690,7 @@
     </div>
 
     <!-- Project Card 2 -->
-    <div class="certification-card">
+    <div class="certification-card" onclick="openProjectModal(1)">
       <div class="certification-img-placeholder" style="height: 180px; width: 100%; margin-bottom: 1em; border-radius: 10px; overflow: hidden;">
         <img src="ThermoDeliver.png" alt="ThermoDeliver" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
@@ -644,7 +702,7 @@
     </div>
 
     <!-- Project Card 3 -->
-    <div class="certification-card">
+    <div class="certification-card" onclick="openProjectModal(2)">
       <div class="certification-img-placeholder" style="height: 180px; width: 100%; margin-bottom: 1em; border-radius: 10px; overflow: hidden;">
         <img src="OtherProjects.png" alt="Other Projects" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
@@ -656,6 +714,16 @@
     </div>
   </div>
 </section>
+
+<!-- Project Modal -->
+<div id="projectModal" class="project-modal">
+  <div class="project-modal-content">
+    <span class="project-modal-close" onclick="closeProjectModal()">&times;</span>
+    <div id="projectModalBody">
+      <!-- Dynamic content goes here -->
+    </div>
+  </div>
+</div>
 
 <style>
   .certification-card:hover {
@@ -712,7 +780,7 @@
       <div style="color:#b3b3b3; font-size:0.95rem; margin-bottom:0.2em;">DataCamp</div>
       <div style="color:#b3b3b3; font-size:0.9rem; margin-bottom:0.7em;">August 2024</div>
       <div class="certification-desc" style="text-align:left;">
-        Demonstrated roficiency in analytics fundamentals, data visualization, and data storytelling.
+        Demonstrated proficiency in analytics fundamentals, data visualization, and data storytelling.
       </div>
       <div style="margin:0.7em 0 0.2em 0;">
         <span style="color:#3B82F6; font-size:0.95rem;">Data Literacy</span>
@@ -755,6 +823,58 @@ document.getElementById("mobileNav").addEventListener("click", function(e) {
     closeMobileNav();
   }
 });
+
+// Project Modal Logic
+function openProjectModal(projectIndex) {
+  const modal = document.getElementById('projectModal');
+  const modalBody = document.getElementById('projectModalBody');
+  // Example project data (replace with your real data)
+  const projects = [
+    {
+      title: "ShroomGuard",
+      image: "ShroomGuard.png",
+      description: "Uses a deep learning model to detect the optimal harvest time of oyster mushrooms based on global standards.",
+      tech: ["Python", "Deep Learning", "Computer Vision"],
+      details: "Built with TensorFlow and OpenCV. Deployed on Raspberry Pi for real-time monitoring."
+    },
+    {
+      title: "ThermoDeliver",
+      image: "ThermoDeliver.png",
+      description: "A Peltier-based heating/cooling food delivery system with PID control and a cloud dashboard for real-time temperature management.",
+      tech: ["Embedded C", "IoT", "AWS", "PID Control"],
+      details: "Features cloud dashboard, real-time alerts, and mobile app integration."
+    },
+    {
+      title: "Other Projects",
+      image: "OtherProjects.png",
+      description: "Includes Arduino-based bots, a chest X-ray classifier, and other prototypes built during my Computer Engineering degree.",
+      tech: ["Arduino", "Python", "Prototyping"],
+      details: "Various academic and hobby projects."
+    }
+  ];
+  const p = projects[projectIndex];
+  modalBody.innerHTML = `
+    <img src="${p.image}" alt="${p.title}" style="width:100%; border-radius:12px; margin-bottom:1em;">
+    <h2 style="margin:0 0 0.5em 0;">${p.title}</h2>
+    <p style="color:#b3b3b3; margin-bottom:1em;">${p.description}</p>
+    <div style="margin-bottom:1em;">
+      <strong style="color:#3B82F6;">TECHNOLOGIES USED:</strong><br>
+      ${p.tech.map(t => `<span style="display:inline-block; background:#232323; color:#fff; border-radius:6px; padding:0.2em 0.7em; margin:0.2em 0.3em 0.2em 0; font-size:0.95em;">${t}</span>`).join('')}
+    </div>
+    <div style="color:#b3b3b3;">${p.details}</div>
+  `;
+  modal.classList.add('active');
+}
+function closeProjectModal() {
+  document.getElementById('projectModal').classList.remove('active');
+}
+// Optional: Close modal on outside click
+document.getElementById('projectModal').addEventListener('click', function(e) {
+  if (e.target === this) closeProjectModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === "Escape") closeProjectModal();
+});
 </script>
 
 <script>
@@ -777,4 +897,3 @@ document.getElementById("mobileNav").addEventListener("click", function(e) {
     observer.observe(section);
   });
 </script>
-</html>
