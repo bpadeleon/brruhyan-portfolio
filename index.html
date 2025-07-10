@@ -307,7 +307,7 @@
   }
   .certification-card:hover {
     transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 12px 32px 0 rgba(59,130,246,0.18);
+    box-shadow: 0 8px 20px 0 rgba(59,130,246,0.13);
     z-index: 2;
   }
   .certification-img-placeholder {
@@ -336,224 +336,256 @@
     margin: 0 0 0.5em 0;
     text-align: center;
   }
-.hamburger-menu {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #f3f3f3;
-}
-.mobile-nav-overlay {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(8px);
-  background: rgba(24,24,24,0.9);
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.mobile-nav-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-.mobile-nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-.mobile-nav-links a {
-  color: #f3f3f3;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-  .reveal {
-  opacity: 0;
-  transform-style: preserve-3d;
-  transform: translateY(40px);
-  transition: all 0.6s ease-out;
-  will-change: transform, opacity;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.about-inner {
-  display: flex;
-  gap: 64px;
-  justify-content: center;
-  align-items: center;
-}
-#projects,
-#about  {
-  padding-bottom: 80px;
-}
-#certifications {
-  overflow: visible;
-}
-.project-modal {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0; top: 0; width: 100vw; height: 100vh;
-  backdrop-filter: blur(8px);
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.2s;
-}
-.project-modal.active {
-  display: flex;
-}
-.project-modal-content {
-  align-items: stretch;
-  border-radius: 18px;
-  padding: 1.2em 1.2em 1em 1.2em;
-  max-width: 480px;
-  width: 95vw;
-  color: #fff;
-  position: relative;
-  animation: modalFadeIn 0.3s;
-  display: flex;
-  flex-direction: column;
-}
-@keyframes modalFadeIn {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-.project-modal-close {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0; top: 0; width: 100vw; height: 100vh;
-  backdrop-filter: blur(8px);
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.2s;
-}
-.project-modal-content img {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 12px;
-  margin-bottom: 1em;
-  display: block;
-  margin-left: 0;
-}
-.project-modal-close:hover {
-  color: #fff;
-}
-@media (max-width: 900px) {
-  .header-nav {
-    display: none;
+  .certification-card .certification-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin: 0.7em 0 0.2em 0;
+    width: 100%;
+    min-height: 1.8em;
+    justify-content: flext-start;
+  }
+  .certification-card .certification-meta-row span {
+    margin: 0;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .certification-card .certification-verify {
+    display: flex;
+    align-items: center;
+    margin: 0.2em 0 0.2em 0;
+    padding: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .certification-card .certification-verify a {
+    color: #3B82F6;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    margin: 0;
+    padding: 0;
   }
   .hamburger-menu {
-    display: block;
-  }
-}
-@media (max-width: 900px) {
-  .about-inner {
-    flex-direction: column-reverse;
-    gap: 40px;
-  }
-  .about-left {
-    align-items: center;
-    text-align: center;
-  }
-}
-@media (max-width: 900px) {
-  .hero-main,
-  .about-section {
-    flex-direction: column;
-    gap: 40px;
-    padding: 40px 2vw;
-  }
-  .hero-left {
-    align-items: center;
-    text-align: center;
-    max-width: 100%;
-  }
-  .hero-right,
-  .about-right {
-    justify-content: center;
-  }
-}
-@media (max-width: 1100px) {
-  .certification-grid {
-    gap: 24px;
-  }
-  .certification-card {
-    width: 45vw;
-    min-width: 180px;
-    max-width: 260px;
-  }
-}
-@media (max-width: 1500px) {
-  .certification-grid {
-    max-width: 100vw;
-    gap: 24px;
-  }
-  .certification-card {
-    width: 320px;
-  }
-}
-@media (max-width: 1200px) {
-  .certification-card {
-    width: 45vw;
-    min-width: 220px;
-    max-width: 320px;
-  }
-}
-@media (max-width: 900px) {
-  .certification-grid {
-    gap: 18px;
-  }
-  .certification-card {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-  }
-}
-@media (max-width: 600px) {
-  .hero-main,
-  .about-section {
-    padding: 24px 0;
-  }
-  .hero-title,
-  .about-title {
-    font-size: 2rem;
-  }
-  .hero-greeting,
-  .about-title {
-    font-size: 1.3rem;
-  }
-  .hero-image-card,
-  .about-image-placeholder {
-    width: 220px;
-    height: 220px;
-  }
-  .hero-desc,
-  .about-desc{
-    font-size: 1.00rem;
-    padding: 0 20px;
-  }
-  .hero-btn,
-  .hero-btn-outline {
-    font-size: 1rem;
-    padding: 0.8em 1.5em;
-  }
-}
-@media (max-width: 900px) {
-  .header-nav {
     display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #f3f3f3;
   }
-}
+  .mobile-nav-overlay {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(8px);
+    background: rgba(24,24,24,0.9);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobile-nav-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .mobile-nav-links a {
+    color: #f3f3f3;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .reveal {
+    opacity: 0;
+    transform-style: preserve-3d;
+    transform: translateY(40px);
+    transition: all 0.6s ease-out;
+    will-change: transform, opacity;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .about-inner {
+    display: flex;
+    gap: 64px;
+    justify-content: center;
+    align-items: center;
+  }
+  #projects,
+  #about  {
+    padding-bottom: 80px;
+  }
+  #certifications {
+    overflow: visible;
+  }
+  .project-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+  }
+  .project-modal.active {
+    display: flex;
+  }
+  .project-modal-content {
+    align-items: stretch;
+    border-radius: 18px;
+    padding: 1.2em 1.2em 1em 1.2em;
+    max-width: 480px;
+    width: 95vw;
+    color: #fff;
+    position: relative;
+    animation: modalFadeIn 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  @keyframes modalFadeIn {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .project-modal-close {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+  }
+  .project-modal-content img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 1em;
+    display: block;
+    margin-left: 0;
+  }
+  .project-modal-close:hover {
+    color: #fff;
+  }
+  @media (max-width: 900px) {
+    .header-nav {
+      display: none;
+    }
+    .hamburger-menu {
+      display: block;
+    }
+  }
+  @media (max-width: 900px) {
+    .about-inner {
+      flex-direction: column-reverse;
+      gap: 40px;
+    }
+    .about-left {
+      align-items: center;
+      text-align: center;
+    }
+  }
+  @media (max-width: 900px) {
+    .hero-main,
+    .about-section {
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px 2vw;
+    }
+    .hero-left {
+      align-items: center;
+      text-align: center;
+      max-width: 100%;
+    }
+    .hero-right,
+    .about-right {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 1100px) {
+    .certification-grid {
+      gap: 24px;
+    }
+    .certification-card {
+      width: 45vw;
+      min-width: 180px;
+      max-width: 260px;
+    }
+  }
+  @media (max-width: 1500px) {
+    .certification-grid {
+      max-width: 100vw;
+      gap: 24px;
+    }
+    .certification-card {
+      width: 320px;
+    }
+  }
+  @media (max-width: 1200px) {
+    .certification-card {
+      width: 45vw;
+      min-width: 220px;
+      max-width: 320px;
+    }
+  }
+  @media (max-width: 900px) {
+    .certification-grid {
+      gap: 18px;
+    }
+    .certification-card {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 600px) {
+    .hero-main,
+    .about-section {
+      padding: 24px 0;
+    }
+    .hero-title,
+    .about-title {
+      font-size: 2rem;
+    }
+    .hero-greeting,
+    .about-title {
+      font-size: 1.3rem;
+    }
+    .hero-image-card,
+    .about-image-placeholder {
+      width: 220px;
+      height: 220px;
+    }
+    .hero-desc,
+    .about-desc{
+      font-size: 1.00rem;
+      padding: 0 20px;
+    }
+    .hero-btn,
+    .hero-btn-outline {
+      font-size: 1rem;
+      padding: 0.8em 1.5em;
+    }
+  }
+  @media (max-width: 900px) {
+    .header-nav {
+      display: none;
+    }
+  }
   </style>
 </head>
 <body>
@@ -686,7 +718,7 @@
     </div>
   </div>
 </div>
-<section id="certifications" class="certification-section reveal" style="margin-bottom: 64px; border-bottom-left-radius: 32px; border-bottom-right-radius: 32px; overflow: hidden";>
+<section id="certifications" class="certification-section reveal" style="margin-bottom: 64px; border-bottom-left-radius: 32px; border-bottom-right-radius: 32px; overflow: hidden;">
   <div style="width:100%; text-align:center; margin-bottom: 0;">
     <h2 style="color: var(--text-main); font-size: 2.3rem; font-weight: 800; margin: 0 0 0.15em 0; letter-spacing: -1px;">
       My Certifications
@@ -703,11 +735,13 @@
       <div class="certification-desc" style="text-align:left;">
         Gained fundamental understanding of IT services and their uses in the AWS Cloud. Demonstrated cloud fluency and foundational AWS knowledge
       </div>
-      <div style="margin:0.7em 0 0.2em 0;">
-        <span style="color:#3B82F6; font-size:0.95rem;">AWS Cloud Services</span>
-        <span style="color:#b3b3b3; font-size:0.95rem; margin-left:1em;">Cloud Computing</span>
+      <div class="certification-meta-row">
+        <span style="color:#3B82F6;">AWS Cloud Services</span>
+        <span style="color:#b3b3b3;">Cloud Computing</span>
       </div>
-      <a href="https://www.credly.com/badges/17378161-b5f0-4784-8dce-06cdcf8a0430/linked_in?t=svv1sh" target="_blank" rel="noopener noreferrer" style="color:#3B82F6; font-size:0.95rem; text-decoration:none; margin-top:0.5em;">&#128279; Verify</a>
+      <div class="certification-verify">
+        <a href="https://www.credly.com/badges/17378161-b5f0-4784-8dce-06cdcf8a0430/linked_in?t=svv1sh" target="_blank" rel="noopener noreferrer">&#128279; Verify</a>
+      </div>
     </div>
     <div class="certification-card">
       <div class="certification-img-placeholder"><img src="alteryx.png" alt="Bryan Paul" style="width: 100%; height: 100%; object-fit: cover;"></div>
@@ -718,11 +752,13 @@
       <div class="certification-desc" style="text-align:left;">
         Able to use the core toolset to clean, prepare, blend, parse, transform, and analyze data. Demonstrated ability to use the tools to solve real-world analytics problems.
       </div>
-      <div style="margin:0.7em 0 0.2em 0;">
-        <span style="color:#3B82F6; font-size:0.95rem;">Alteryx Designer</span>
-        <span style="color:#b3b3b3; font-size:0.95rem; margin-left:1em;">Data Analysis</span>
+      <div class="certification-meta-row">
+        <span style="color:#3B82F6;">Alteryx Designer</span>
+        <span style="color:#b3b3b3;">Data Analysis</span>
       </div>
-      <a href="https://www.credly.com/badges/0b79ea6d-8d02-4a74-ac4f-413d29af073a/public_url" target="_blank" rel="noopener noreferrer" style="color:#3B82F6; font-size:0.95rem; text-decoration:none; margin-top:0.5em;">&#128279; Verify</a>
+      <div class="certification-verify">
+        <a href="https://www.credly.com/badges/0b79ea6d-8d02-4a74-ac4f-413d29af073a/public_url" target="_blank" rel="noopener noreferrer">&#128279; Verify</a>
+      </div>
     </div>
     <div class="certification-card">
       <div class="certification-img-placeholder"><img src="data_literacy.png" alt="Bryan Paul" style="width: 100%; height: 100%; object-fit: cover;"></div>
@@ -731,12 +767,14 @@
       <div style="color:#b3b3b3; font-size:0.95rem; margin-bottom:0.2em;">DataCamp</div>
       <div style="color:#b3b3b3; font-size:0.9rem; margin-bottom:0.7em;">August 2024</div>
       <div class="certification-desc" style="text-align:left;">
-        Demonstrated proficiency in analytics fundamentals, data visualization, and data storytelling.
+        Demonstrated proficiency in analytics fundamentals, data visualization, data storytelling, and translating complex datasets into actionable business insights.
       </div>
-      <div style="margin:0.7em 0 0.2em 0;">
-        <span style="color:#3B82F6; font-size:0.95rem;">Data Literacy</span>
+      <div class="certification-meta-row">
+        <span style="color:#3B82F6;">Data Literacy</span>
       </div>
-      <a href="https://www.datacamp.com/skill-verification/DL0032666303257" target="_blank" rel="noopener noreferrer" style="color:#3B82F6; font-size:0.95rem; text-decoration:none; margin-top:0.5em;">&#128279; Verify</a>
+      <div class="certification-verify">
+        <a href="https://www.datacamp.com/skill-verification/DL0032666303257" target="_blank" rel="noopener noreferrer">&#128279; Verify</a>
+      </div>
     </div>
     <div class="certification-card">
       <div class="certification-img-placeholder"><img src="OCI.png" alt="Bryan Paul" style="width: 100%; height: 100%; object-fit: cover;"></div>
@@ -747,16 +785,34 @@
       <div class="certification-desc" style="text-align:left;">
         Entry-level certification validating overall understanding of the OCI, its services, and basic architecture best practices.
       </div>
-      <div style="margin:0.7em 0 0.2em 0;">
-        <span style="color:#3B82F6; font-size:0.95rem;">Oracle Cloud</span>
-        <span style="color:#b3b3b3; font-size:0.95rem; margin-left:1em;">Cloud Computing</span>
+      <div class="certification-meta-row">
+        <span style="color:#3B82F6;">Oracle Cloud</span>
+        <span style="color:#b3b3b3;">Cloud Computing</span>
       </div>
-      <a href="https://drive.google.com/file/d/1psu-TbzzmH8gxuofLIUxJ3wwO3faRQv0/view?usp=sharing" target="_blank" rel="noopener noreferrer"style="color:#3B82F6; font-size:0.95rem; text-decoration:none; margin-top:0.5em;">&#128279; Verify</a>
+      <div class="certification-verify">
+        <a href="https://drive.google.com/file/d/1psu-TbzzmH8gxuofLIUxJ3wwO3faRQv0/view?usp=sharing" target="_blank" rel="noopener noreferrer">&#128279; Verify</a>
+      </div>
+    </div>
+    <div class="certification-card">
+      <div class="certification-img-placeholder"><img src="OCI.png" alt="Bryan Paul" style="width: 100%; height: 100%; object-fit: cover;"></div>
+      <div style="color:var(--accent); font-size:0.7rem; font-weight:600; margin-bottom:0.2em;">Certification</div>
+      <div class="certification-title" style="color:#fff; font-size:1.1rem; font-weight:700; margin-bottom:0.2em; text-align:left;">Oracle AI Foundations Associate</div>
+      <div style="color:#b3b3b3; font-size:0.95rem; margin-bottom:0.2em;">Oracle</div>
+      <div style="color:#b3b3b3; font-size:0.9rem; margin-bottom:0.7em;">July 2025</div>
+      <div class="certification-desc" style="text-align:left;">
+        Familiarized with fundamental concepts of AI, including machine learning, natural language processing, and computer vision. 
+      </div>
+      <div class="certification-meta-row">
+        <span style="color:#3B82F6;">Oracle Cloud</span>
+        <span style="color:#b3b3b3;">Cloud Computing</span>
+      </div>
+      <div class="certification-verify">
+        <a href="https://drive.google.com/file/d/1MnR7a9OeNKv3RwkPZA35KA1oWfQOnxuN/view" target="_blank" rel="noopener noreferrer">&#128279; Verify</a>
+      </div>
     </div>
   </div>
 </section>
 
-</section>
 <!-- Contact Me Section -->
 <section id="contact" style="background:#111; color:#fff; padding:64px 0 64px 0;">
   <div style="max-width:900px; margin:0 auto; text-align:center;">
