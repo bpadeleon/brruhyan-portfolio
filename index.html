@@ -824,17 +824,15 @@ document.getElementById("mobileNav").addEventListener("click", function(e) {
   }
 });
 
-// Project Modal Logic
 function openProjectModal(projectIndex) {
   const modal = document.getElementById('projectModal');
   const modalBody = document.getElementById('projectModalBody');
-  // Example project data (replace with your real data)
   const projects = [
     {
       title: "ShroomGuard",
-      image: "ShroomGuard.png",
+      video: "shroom_demo.mp4",
       description: "Uses a deep learning model to detect the optimal harvest time of oyster mushrooms based on global standards.",
-      tech: ["Python", "Deep Learning", "Computer Vision"],
+      tech: ["AWS", "Firebase", "Roboflow", "Python"],
       details: "Built with TensorFlow and OpenCV. Deployed on Raspberry Pi for real-time monitoring."
     },
     {
@@ -853,8 +851,17 @@ function openProjectModal(projectIndex) {
     }
   ];
   const p = projects[projectIndex];
+  let mediaHtml = "";
+  if (p.video) {
+    mediaHtml = `<video controls style="width:100%; border-radius:12px; margin-bottom:1em;">
+      <source src="${p.video}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>`;
+  } else if (p.image) {
+    mediaHtml = `<img src="${p.image}" alt="${p.title}" style="width:100%; border-radius:12px; margin-bottom:1em;">`;
+  }
   modalBody.innerHTML = `
-    <img src="${p.image}" alt="${p.title}" style="width:100%; border-radius:12px; margin-bottom:1em;">
+    ${mediaHtml}
     <h2 style="margin:0 0 0.5em 0;">${p.title}</h2>
     <p style="color:#b3b3b3; margin-bottom:1em;">${p.description}</p>
     <div style="margin-bottom:1em;">
@@ -864,6 +871,13 @@ function openProjectModal(projectIndex) {
     <div style="color:#b3b3b3;">${p.details}</div>
   `;
   modal.classList.add('active');
+
+  if (p.video) {
+    const video = document.getElementById('modalVideo');
+    if (video) {
+      video.play().catch(() => {});
+    }
+  }
 }
 function closeProjectModal() {
   document.getElementById('projectModal').classList.remove('active');
