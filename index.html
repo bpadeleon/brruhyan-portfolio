@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Bryan Paul | Portfolio </title>
+    <link rel="icon" type="image/x-icon" href="terminal.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   <style>
@@ -21,6 +22,8 @@
       padding: 0;
       min-height: 100vh;
       scroll-behavior: smooth;
+      font-size: 14px; 
+  
     }
     .main-header {
       width: 100%;
@@ -281,14 +284,12 @@
         background: #181818;
     }
   .certification-grid {
-    overflow: visible;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: flex-start;
-    align-items: stretch;
-    max-width: 1560px;
-    margin: 2.5em auto 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      max-width: 1560px;
+      margin: 2.5em auto 0 auto;
+      align-items: stretch;
   }
   .certification-card {
     background: #232323;
@@ -341,9 +342,15 @@
     align-items: center;
     gap: 1em;
     margin: 0.7em 0 0.2em 0;
-    width: 100%;
     min-height: 1.8em;
-    justify-content: flext-start;
+    justify-content: flex-start;
+  }
+  .certification-card,
+  .project-card {
+    width: 100%;
+    max-width: 380px;
+    min-width: 0;
+    /* ...other styles... */
   }
   .certification-card .certification-meta-row span {
     margin: 0;
@@ -664,6 +671,9 @@
     padding: 1.5em;
     transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
     will-change: transform;
+    width: 100%;
+    max-width: 380px;
+    min-width: 0;
   }
   .project-card:hover {
     transform: translateY(-5px) scale(1.001);
