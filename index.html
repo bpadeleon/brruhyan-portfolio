@@ -551,13 +551,33 @@
   }
   @media (max-width: 900px) {
     .certification-grid {
-      gap: 18px;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 98vw;
+      margin: 1em auto 0 auto;
     }
-    .certification-card {
+    .certification-card,
+    .project-card {
       width: 100%;
       min-width: 0;
       max-width: 100%;
+      box-sizing: border-box;
+      padding: 1em 0.7em;
     }
+    .about-section,
+    .hero-main {
+      padding: 24px 0;
+      gap: 24px;
+  }
+    .about-inner {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+  .about-image-placeholder,
+  .hero-image-card {
+    width: 180px;
+    height: 180px;
+  }
   }
   @media (max-width: 600px) {
     .hero-main,
