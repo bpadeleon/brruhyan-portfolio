@@ -228,7 +228,7 @@
       justify-content: center;
     }
     .about-image-placeholder {
-      width: 520px;
+      width: 510px;
       height: 400px;
       background: #232323;
       border-radius: 20px;
@@ -920,10 +920,10 @@ function openProjectModal(projectIndex) {
     {
       title: "ShroomGuard",
       medias: [
-        { type: "video", src: "shroom_demo.mp4" },
-        { type: "image", src: "shroom_deploy.jpg" },
-        { type: "image", src: "Hardware_config.png" },
-        { type: "image", src: "Architecture.png" }
+        { type: "video", src: "shroom_demo.mp4",  caption: "Project Demo" },
+        { type: "image", src: "shroom_deploy.jpg", caption: "Project Testing" },
+        { type: "image", src: "Hardware_config.png", caption: "Hardware Device" },
+        { type: "image", src: "Architecture.png",  caption: "Software Architecture" }
       ],
       description: "Scans oyster mushrooms to determine the optimal harvest time based on global standards using deep learning.",
       tech: ["AWS", "Firebase", "Roboflow", "Python"],
@@ -932,7 +932,7 @@ function openProjectModal(projectIndex) {
     {
       title: "ThermoDeliver",
       medias: [
-        { type: "image", src: "ThermoDeliver.png" },
+        { type: "image", src: "ThermoDeliver.png", caption: "Hardware Schematic" },
         { type: "image", src: "thermo_schematic.png" }
       ],
       description: "A Peltier-based heating/cooling food delivery system with PID control and a cloud dashboard for real-time temperature management.",
@@ -942,8 +942,8 @@ function openProjectModal(projectIndex) {
     {
       title: "Other Projects",
       medias: [
-        { type: "image", src: "other1.png" },
-        { type: "image", src: "other2.png" }
+        { type: "video", src: "dockerized-mushroom.mp4", caption: "Dockerized deep-learning model deployed in AWS EC2" },
+        { type: "image", src: "other1.png" , caption: "Arduino-based sumobot"},
       ],
       description: "Includes Arduino-based bots, a chest X-ray classifier, and other prototypes built during my Computer Engineering degree.",
       tech: ["Arduino", "Python", "OpenCV"],
@@ -956,16 +956,22 @@ function openProjectModal(projectIndex) {
     openProjectModal.lastProject = projectIndex;
   }
   function renderMedia(idx) {
-    const media = p.medias[idx];
-    if (media.type === "video") {
-      return `<video id="modalVideo" controls autoplay style="width:100%; border-radius:12px; margin-bottom:1em;">
+  const media = p.medias[idx];
+  if (media.type === "video") {
+    return `<div style="position: relative; text-align: center;">
+      <video id="modalVideo" controls autoplay style="width:100%; border-radius:12px; margin-bottom:1em;">
         <source src="${media.src}" type="video/mp4">
         Your browser does not support the video tag.
-      </video>`;
-    } else if (media.type === "image") {
-      return `<img src="${media.src}" alt="${p.title}" style="width:100%; border-radius:12px; margin-bottom:1em;">`;
-    }
-    return "";
+      </video>
+      ${media.caption ? `<div style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 0.3em 0.6em; border-radius: 4px; font-size: 0.7rem; font-style: italic; max-width: calc(100% - 20px); word-wrap: break-word;">${media.caption}</div>` : ''}
+    </div>`;
+  } else if (media.type === "image") {
+    return `<div style="position: relative; text-align: center;">
+      <img src="${media.src}" alt="${p.title}" style="width:100%; border-radius:12px; margin-bottom:1em;">
+      ${media.caption ? `<div style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 0.3em 0.6em; border-radius: 4px; font-size: 0.8rem; font-style: italic; max-width: calc(100% - 20px); word-wrap: break-word;">${media.caption}</div>` : ''}
+    </div>`;
+  }
+  return "";
   }
   function renderModal() {
     modalBody.innerHTML = `
